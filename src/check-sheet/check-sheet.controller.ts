@@ -54,7 +54,7 @@ export class CheckSheetController {
         );
       }
       return checkSheet;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
       // 에러를 클라이언트로 재발생시켜 전송
       throw new HttpException(
@@ -90,7 +90,7 @@ export class CheckSheetController {
         files,
       );
       return response.status(201).json(createdCheckSheet);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       throw new HttpException(`${error.message}`, HttpStatus.BAD_REQUEST);
     }
@@ -123,7 +123,7 @@ export class CheckSheetController {
         files,
       );
       return response.status(201).json(updatedCheckSheet);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       throw new HttpException(`${error.message}`, HttpStatus.BAD_REQUEST);
     }
@@ -145,7 +145,7 @@ export class CheckSheetController {
     try {
       const record = await this.checkSheetService.recordSheet(body);
       return response.status(201).json(record);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error:', error.message);
       throw new HttpException(`${error.message}`, HttpStatus.BAD_REQUEST);
     }
@@ -168,7 +168,7 @@ export class CheckSheetController {
       const checkItemDto: CheckedList = body;
       const record = await this.checkSheetService.updateSheet(checkItemDto);
       return response.status(201).json(record);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error parsing JSON:', error);
       throw new HttpException(`${error.message}`, HttpStatus.BAD_REQUEST);
     }

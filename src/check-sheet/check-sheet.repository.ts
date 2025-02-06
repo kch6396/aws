@@ -73,7 +73,7 @@ export class CheckSheetMongoRepository implements CheckSheetRepository {
           HttpStatus.NOT_FOUND,
         );
       }
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`${error.message}`);
     }
   }
@@ -104,7 +104,7 @@ export class CheckSheetMongoRepository implements CheckSheetRepository {
       checkSheet.checkedList.push(checkItemDto);
       await checkSheet.save();
       return checkItemDto;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`${error.message}`);
     }
   }

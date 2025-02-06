@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { WorkPlanModule } from './work-plan/work-plan.module';
 import { DriversModule } from './drivers/drivers.module';
 import { RecordModule } from './record/record.module';
+import { HealthyModule } from './healthy-check/healthy.module';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { RecordModule } from './record/record.module';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (ConfigService: ConfigService) => ({
-        uri: ConfigService.get<string>('MONGODB_CHECK_SHEET_URL'),
+        uri: ConfigService.get<string>('DATABASE_URL'),
       }),
       inject: [ConfigService],
     }),
@@ -22,6 +23,7 @@ import { RecordModule } from './record/record.module';
     WorkPlanModule,
     DriversModule,
     RecordModule,
+    HealthyModule,
   ],
   controllers: [AppController],
   providers: [AppService],

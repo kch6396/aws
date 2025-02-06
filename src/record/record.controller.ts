@@ -52,7 +52,7 @@ export class RecordController {
 
       // // 즉시 응답 반환
       // res.status(200).send('Recording started successfully in background.');
-    } catch (error) {
+    } catch (error: any) {
       if (error.message.includes('connect ETIMEDOUT')) {
         throw new HttpException(
           '녹화를 시작할 수 없습니다. 카메라가 꺼져 있습니다.',
@@ -80,7 +80,7 @@ export class RecordController {
       // 녹화 중지
       this.recordService.stopRecording();
       res.status(200).send('Recording stopped successfully.');
-    } catch (error) {
+    } catch (error: any) {
       throw new HttpException(
         error.message || `Error starting recording: ${error.message}`,
         error.status || HttpStatus.INTERNAL_SERVER_ERROR,

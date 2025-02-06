@@ -1,4 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["node_modules", "test", "dist", "**/*spec.ts"]
+  "compilerOptions": {
+    "outDir": "./dist", // ✅ 빌드 결과물을 dist 폴더에 저장
+    "rootDir": "./", // ✅ 프로젝트 루트 전체를 포함
+    "module": "CommonJS",
+    "target": "ES6",
+    "strict": true
+  },
+  "include": ["./**/*"], // ✅ 모든 파일 포함
+  "exclude": ["node_modules", "test", "dist", "**/*.spec.ts"] // ✅ 불필요한 파일 제외
 }

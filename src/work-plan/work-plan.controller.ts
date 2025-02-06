@@ -51,7 +51,7 @@ export class WorkPlanController {
         );
       }
       return workPlan;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
       throw new HttpException(
         error.response ||
@@ -169,7 +169,7 @@ export class WorkPlanController {
         'attachment; filename=workplan_with_images.xlsx',
       );
       res.status(HttpStatus.OK).send(buffer);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
       throw new HttpException(
         error.response ||

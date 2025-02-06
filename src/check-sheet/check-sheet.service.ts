@@ -94,7 +94,7 @@ export class CheckSheetService {
         ...checkSheetDto,
       });
       return checkSheet;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Service Error: ${error.message}`);
     }
   }
@@ -131,7 +131,7 @@ export class CheckSheetService {
         ...checkSheetDto,
       });
       return checkSheet;
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(`Service Error: ${error.message}`);
     }
   }

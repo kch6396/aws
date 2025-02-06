@@ -51,7 +51,7 @@ export class DriversController {
       }
 
       return driversImage;
-    } catch (error) {
+    } catch (error: any) {
       console.error(error.message);
       // 에러를 클라이언트로 재발생시켜 전송
       throw new HttpException(
@@ -117,7 +117,7 @@ export class DriversController {
         originDriverPaths,
       );
       return response.status(201).json(updatedDriver);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error parsing JSON:', error);
       return response.status(500).json({ message: 'Internal Server Error' });
     }
